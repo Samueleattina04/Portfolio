@@ -1,0 +1,123 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+class PortfolioController extends Controller
+{
+    public function index()
+    {
+        $data = [
+            'name' => 'Samuele Attinà',
+            'role' => 'IT Support & Junior ICT Specialist',
+            'subtitle' => 'Full-Stack Web Developer · Cybersecurity Enthusiast',
+            'location' => 'Adrano, Catania, Italia',
+            'email' => 'samueleattina04@gmail.com',
+            'phone' => '+39 340 489 2432',
+            'linkedin' => 'https://www.linkedin.com/in/samuele-attina',
+
+            'about' => 'Professionista IT con esperienza in IT Service Management, Incident Management e Governance dei Servizi IT. Attualmente in formazione come Full-Stack Web Developer con specializzazione in Cybersecurity. Appassionato di tecnologia, sistemi informatici e sicurezza digitale, con un approccio analitico ai problemi e una forte propensione all\'apprendimento continuo.',
+
+            'skills' => [
+                ['category' => 'IT Service Management', 'items' => [
+                    ['name' => 'Incident Management', 'level' => 90],
+                    ['name' => 'ITIL Framework', 'level' => 80],
+                    ['name' => 'Ticket Management', 'level' => 90],
+                    ['name' => 'CMDB & Asset Management', 'level' => 75],
+                ]],
+                ['category' => 'Infrastructure & Network', 'items' => [
+                    ['name' => 'Active Directory', 'level' => 85],
+                    ['name' => 'VPN / Firewall / Switch Cisco', 'level' => 75],
+                    ['name' => 'Windows Server', 'level' => 80],
+                    ['name' => 'Endpoint Security', 'level' => 75],
+                ]],
+                ['category' => 'Web Development', 'items' => [
+                    ['name' => 'HTML / CSS / JavaScript', 'level' => 80],
+                    ['name' => 'PHP / Laravel', 'level' => 70],
+                    ['name' => 'Bootstrap', 'level' => 85],
+                    ['name' => 'MySQL / SQLite', 'level' => 70],
+                ]],
+                ['category' => 'Tools & Platform', 'items' => [
+                    ['name' => 'Microsoft 365', 'level' => 90],
+                    ['name' => 'GitHub', 'level' => 75],
+                    ['name' => 'ERP Systems', 'level' => 70],
+                ]],
+            ],
+
+            'experience' => [
+                [
+                    'role' => 'IT Support & Junior ICT Specialist',
+                    'company' => 'Antichi Sapori dell\'Etna S.r.l.',
+                    'period' => 'Agosto 2025 – Presente',
+                    'type' => 'current',
+                    'description' => 'Gestione degli incident IT di primo e secondo livello. Qualificazione e prioritizzazione delle richieste tecniche. Coordinamento tra utenti business e fornitori IT esterni. Gestione account su Active Directory ed ERP. Configurazione sistemi Windows e infrastruttura di rete. Supporto VPN, switch e firewall. Monitoraggio sicurezza e progetti di miglioramento infrastruttura ICT.',
+                    'tags' => ['ITIL', 'Active Directory', 'Incident Management', 'VPN', 'Cisco', 'ERP'],
+                ],
+                [
+                    'role' => 'Capo Reparto – Linee Creme e Pesto',
+                    'company' => 'Antichi Sapori Dell\'Etna – Pisti',
+                    'period' => 'Ottobre 2022 – Novembre 2024',
+                    'type' => 'past',
+                    'description' => 'Coordinamento operativo del team di reparto. Pianificazione attività e gestione delle priorità. Monitoraggio delle performance e rispetto degli SLA di produzione. Problem solving e risoluzione delle problematiche operative. Miglioramento continuo dei processi produttivi.',
+                    'tags' => ['Team Leadership', 'SLA', 'Problem Solving', 'Process Improvement'],
+                ],
+            ],
+
+            'education' => [
+                [
+                    'title' => 'Full-Stack Web Developer con Specializzazione in Cybersecurity',
+                    'institution' => 'Aulab',
+                    'period' => 'Novembre 2024 – Giugno 2025',
+                    'description' => 'Corso intensivo di sviluppo web full-stack con focus su sicurezza informatica. HTML, CSS, JavaScript, PHP, Laravel, Bootstrap.',
+                ],
+                [
+                    'title' => 'Diploma di Liceo delle Scienze Umane – Opzione Economico-Sociale',
+                    'institution' => 'Liceo Ginnasio Statale "G. Verga", Adrano',
+                    'period' => 'Settembre 2017 – Luglio 2022',
+                    'description' => 'Votazione: 76/100',
+                ],
+            ],
+
+            'certifications' => [
+                ['name' => 'Introduction to Cybersecurity', 'issuer' => 'Cisco', 'icon' => 'shield-lock'],
+                ['name' => 'Networking Basics', 'issuer' => 'Cisco', 'icon' => 'diagram-3'],
+                ['name' => 'Introduction to IoT', 'issuer' => 'Cisco', 'icon' => 'cpu'],
+                ['name' => 'Fondamenti di Cybersecurity', 'issuer' => 'LinkedIn Learning', 'icon' => 'lock'],
+            ],
+
+            'languages' => [
+                ['name' => 'Italiano', 'level' => 'Madrelingua', 'percent' => 100],
+                ['name' => 'Inglese', 'level' => 'B1 – Tecnico IT', 'percent' => 60],
+                ['name' => 'Francese', 'level' => 'A2/B1', 'percent' => 45],
+            ],
+        ];
+
+        return view('portfolio.index', compact('data'));
+    }
+
+    public function contact(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'    => 'required|string|max:100',
+            'email'   => 'required|email|max:150',
+            'subject' => 'required|string|max:200',
+            'message' => 'required|string|max:2000',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors'  => $validator->errors(),
+            ], 422);
+        }
+
+        \Log::info('Portfolio contact form', $request->only(['name', 'email', 'subject', 'message']));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Messaggio ricevuto! Ti contatterò al più presto.',
+        ]);
+    }
+}
