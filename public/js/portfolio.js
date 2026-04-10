@@ -128,10 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const typedEl = document.getElementById('typedText');
     if (typedEl) {
         const texts = [
-            'IT Support & Junior ICT Specialist',
+            'IT Support & ICT Specialist',
             'Full-Stack Web Developer',
+            'Sviluppo Siti Web & Gestionali',
+            'Consulenza Informatica',
             'Cybersecurity Enthusiast',
-            'ITIL & Incident Manager',
         ];
         let tIdx = 0, cIdx = 0, deleting = false;
         function typeLoop() {

@@ -10,15 +10,55 @@ class PortfolioController extends Controller
     public function index()
     {
         $data = [
-            'name' => 'Samuele Attinà',
-            'role' => 'IT Support & Junior ICT Specialist',
-            'subtitle' => 'Full-Stack Web Developer · Cybersecurity Enthusiast',
-            'location' => 'Adrano, Catania, Italia',
-            'email' => 'samueleattina04@gmail.com',
-            'phone' => '+39 340 489 2432',
-            'linkedin' => 'https://www.linkedin.com/in/samuele-attin%C3%A0-194770263',
+            'name'      => 'Samuele Attinà',
+            'role'      => 'IT Support & ICT Specialist | Web Developer',
+            'subtitle'  => 'Consulenza Informatica · Sviluppo Web · Cybersecurity',
+            'location'  => 'Adrano, Catania, Sicilia',
+            'email'     => 'samueleattina04@gmail.com',
+            'phone'     => '+39 340 489 2432',
+            'whatsapp'  => '393404892432',
+            'linkedin'  => 'https://www.linkedin.com/in/samuele-attin%C3%A0-194770263',
 
-            'about' => 'Professionista IT con esperienza in IT Service Management, Incident Management e Governance dei Servizi IT. Attualmente in formazione come Full-Stack Web Developer con specializzazione in Cybersecurity. Appassionato di tecnologia, sistemi informatici e sicurezza digitale, con un approccio analitico ai problemi e una forte propensione all\'apprendimento continuo.',
+            'seo' => [
+                'title'       => 'Samuele Attinà | IT Specialist & Web Developer – Adrano, Catania',
+                'description' => 'Samuele Attinà: IT Support, Consulenza Informatica, Sviluppo Siti Web e Gestionali su misura. Operativo ad Adrano (Catania) e disponibile da remoto. Contattami per supporto IT, reti, sicurezza informatica o per realizzare il tuo sito web.',
+                'keywords'    => 'IT support Adrano, consulenza informatica Catania, sviluppo siti web Sicilia, web developer Catania, gestionale personalizzato, IT specialist Sicilia, supporto informatico Adrano, cybersecurity Sicilia, Laravel developer, PHP developer Catania, assistenza informatica Catania, sito web professionale, Samuele Attinà',
+                'url'         => 'https://samueleattina.it',
+                'image'       => 'https://samueleattina.it/og-image.jpg',
+            ],
+
+            'about' => 'Sono un professionista IT a tutto tondo: lavoro attivamente come IT Support & ICT Specialist in azienda, gestendo infrastrutture, incident e sicurezza informatica, e parallelamente sviluppo siti web, applicazioni e gestionali su misura. Se hai bisogno di consulenza informatica, supporto tecnico, o vuoi un sito web / gestionale professionale, sono la persona giusta. Opero ad Adrano (CT) e da remoto su tutto il territorio.',
+
+            'services' => [
+                [
+                    'icon'  => 'globe2',
+                    'title' => 'Sviluppo Siti Web',
+                    'desc'  => 'Realizzo siti web moderni, veloci e ottimizzati SEO. Dai siti vetrina ai portali complessi, con HTML, CSS, JavaScript, PHP e Laravel.',
+                    'tags'  => ['Sito Vetrina', 'Landing Page', 'E-commerce', 'SEO'],
+                    'color' => 'primary',
+                ],
+                [
+                    'icon'  => 'window-stack',
+                    'title' => 'Gestionali su Misura',
+                    'desc'  => 'Sviluppo applicazioni web gestionali personalizzate per aziende: gestione magazzino, ordini, risorse umane, CRM e molto altro.',
+                    'tags'  => ['CRM', 'ERP', 'Dashboard', 'Database'],
+                    'color' => 'accent',
+                ],
+                [
+                    'icon'  => 'headset',
+                    'title' => 'Supporto IT & Consulenza',
+                    'desc'  => 'Assistenza informatica professionale: installazione e configurazione sistemi, reti, VPN, firewall, Active Directory, Microsoft 365.',
+                    'tags'  => ['Active Directory', 'Reti', 'Windows Server', 'Microsoft 365'],
+                    'color' => 'accent2',
+                ],
+                [
+                    'icon'  => 'shield-lock-fill',
+                    'title' => 'Cybersecurity',
+                    'desc'  => 'Analisi delle vulnerabilità, hardening dei sistemi, endpoint security e monitoraggio della sicurezza IT aziendale.',
+                    'tags'  => ['Firewall', 'Endpoint Security', 'Audit', 'Backup'],
+                    'color' => 'purple',
+                ],
+            ],
 
             'skills' => [
                 ['category' => 'IT Service Management', 'items' => [
@@ -48,49 +88,49 @@ class PortfolioController extends Controller
 
             'experience' => [
                 [
-                    'role' => 'IT Support & Junior ICT Specialist',
-                    'company' => 'Antichi Sapori dell\'Etna S.r.l.',
-                    'period' => 'Agosto 2025 – Presente',
-                    'type' => 'current',
-                    'description' => 'Gestione degli incident IT di primo e secondo livello. Qualificazione e prioritizzazione delle richieste tecniche. Coordinamento tra utenti business e fornitori IT esterni. Gestione account su Active Directory ed ERP. Configurazione sistemi Windows e infrastruttura di rete. Supporto VPN, switch e firewall. Monitoraggio sicurezza e progetti di miglioramento infrastruttura ICT.',
-                    'tags' => ['ITIL', 'Active Directory', 'Incident Management', 'VPN', 'Cisco', 'ERP'],
+                    'role'        => 'IT Support & ICT Specialist Junior',
+                    'company'     => 'Antichi Sapori dell\'Etna S.r.l.',
+                    'period'      => 'Agosto 2025 – Presente',
+                    'type'        => 'current',
+                    'description' => 'Gestione degli incident IT di 1° e 2° livello. Qualificazione e prioritizzazione delle richieste tecniche. Coordinamento tra utenti business e fornitori IT esterni. Gestione account su Active Directory ed ERP. Configurazione sistemi Windows e infrastruttura di rete. Supporto VPN, switch e firewall. Monitoraggio sicurezza e progetti di miglioramento infrastruttura ICT.',
+                    'tags'        => ['ITIL', 'Active Directory', 'Incident Management', 'VPN', 'Cisco', 'ERP'],
                 ],
                 [
-                    'role' => 'Capo Reparto – Linee Creme e Pesto',
-                    'company' => 'Antichi Sapori Dell\'Etna – Pisti',
-                    'period' => 'Ottobre 2022 – Novembre 2024',
-                    'type' => 'past',
+                    'role'        => 'Capo Reparto – Linee Creme e Pesto',
+                    'company'     => 'Antichi Sapori Dell\'Etna – Pisti',
+                    'period'      => 'Ottobre 2022 – Novembre 2024',
+                    'type'        => 'past',
                     'description' => 'Coordinamento operativo del team di reparto. Pianificazione attività e gestione delle priorità. Monitoraggio delle performance e rispetto degli SLA di produzione. Problem solving e risoluzione delle problematiche operative. Miglioramento continuo dei processi produttivi.',
-                    'tags' => ['Team Leadership', 'SLA', 'Problem Solving', 'Process Improvement'],
+                    'tags'        => ['Team Leadership', 'SLA', 'Problem Solving', 'Process Improvement'],
                 ],
             ],
 
             'education' => [
                 [
-                    'title' => 'Full-Stack Web Developer con Specializzazione in Cybersecurity',
+                    'title'       => 'Full-Stack Web Developer con Specializzazione in Cybersecurity',
                     'institution' => 'Aulab',
-                    'period' => 'Novembre 2024 – Giugno 2025',
+                    'period'      => 'Novembre 2024 – Giugno 2025',
                     'description' => 'Corso intensivo di sviluppo web full-stack con focus su sicurezza informatica. HTML, CSS, JavaScript, PHP, Laravel, Bootstrap.',
                 ],
                 [
-                    'title' => 'Diploma di Liceo delle Scienze Umane – Opzione Economico-Sociale',
+                    'title'       => 'Diploma di Liceo delle Scienze Umane – Opzione Economico-Sociale',
                     'institution' => 'Liceo Ginnasio Statale "G. Verga", Adrano',
-                    'period' => 'Settembre 2017 – Luglio 2022',
+                    'period'      => 'Settembre 2017 – Luglio 2022',
                     'description' => 'Votazione: 76/100',
                 ],
             ],
 
             'certifications' => [
                 ['name' => 'Introduction to Cybersecurity', 'issuer' => 'Cisco', 'icon' => 'shield-lock'],
-                ['name' => 'Networking Basics', 'issuer' => 'Cisco', 'icon' => 'diagram-3'],
-                ['name' => 'Introduction to IoT', 'issuer' => 'Cisco', 'icon' => 'cpu'],
-                ['name' => 'Fondamenti di Cybersecurity', 'issuer' => 'LinkedIn Learning', 'icon' => 'lock'],
+                ['name' => 'Networking Basics',              'issuer' => 'Cisco', 'icon' => 'diagram-3'],
+                ['name' => 'Introduction to IoT',            'issuer' => 'Cisco', 'icon' => 'cpu'],
+                ['name' => 'Fondamenti di Cybersecurity',    'issuer' => 'LinkedIn Learning', 'icon' => 'lock'],
             ],
 
             'languages' => [
-                ['name' => 'Italiano', 'level' => 'Madrelingua', 'percent' => 100],
-                ['name' => 'Inglese', 'level' => 'B1 – Tecnico IT', 'percent' => 60],
-                ['name' => 'Francese', 'level' => 'A2/B1', 'percent' => 45],
+                ['name' => 'Italiano', 'level' => 'Madrelingua',      'percent' => 100],
+                ['name' => 'Inglese',  'level' => 'B1 – Tecnico IT',  'percent' => 60],
+                ['name' => 'Francese', 'level' => 'A2/B1',            'percent' => 45],
             ],
         ];
 
