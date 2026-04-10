@@ -1,0 +1,44 @@
+name: Deploy su Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v4
+
+      - name: Deploy su Hostinger via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/${{ secrets.SSH_USERNAME }}/domains/${{ secrets.DOMAIN }}/public_html
+
+            # Scarica le ultime modifiche
+            git pull origin main
+
+            # Installa/aggiorna dipendenze PHP (solo produzione)
+            composer install --no-dev --optimize-autoloader --no-interaction
+
+            # Aggiorna il database se ci sono nuove migration
+            php artisan migrate --force
+
+            # Ricrea tutte le cache
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+
+            # Permessi corretti su storage
+            chmod -R 775 storage bootstrap/cache
+
+            echo "✅ Deploy completato con successo!"
