@@ -170,7 +170,7 @@ class PortfolioController extends Controller
             Mail::to('samueleattina04@gmail.com')->send(new ContactMail(
                 senderName:  $request->input('name'),
                 senderEmail: $request->input('email'),
-                subject:     $request->input('subject'),
+                mailSubject: $request->input('subject'),
                 body:        $request->input('message'),
             ));
         } catch (\Exception $e) {

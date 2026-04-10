@@ -41,7 +41,7 @@
     </div>
     <div class="field">
       <div class="label">Oggetto</div>
-      <div class="value">{{ $subject }}</div>
+      <div class="value">{{ $mailSubject }}</div>
     </div>
     <div class="field">
       <div class="label">Messaggio</div>
