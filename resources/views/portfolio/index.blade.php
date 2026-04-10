@@ -439,8 +439,13 @@
         <div class="row g-4">
             @foreach($data['education'] as $idx => $edu)
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ $idx * 150 }}">
-                <div class="edu-card">
-                    <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="edu-card {{ $edu['upcoming'] ? 'edu-card--upcoming' : '' }}">
+                    <div class="edu-icon">
+                        <i class="bi bi-{{ $edu['upcoming'] ? 'mortarboard' : 'mortarboard-fill' }}"></i>
+                    </div>
+                    @if($edu['upcoming'])
+                    <span class="edu-upcoming-badge"><i class="bi bi-clock"></i> In partenza a settembre</span>
+                    @endif
                     <h4 class="edu-title">{{ $edu['title'] }}</h4>
                     <p class="edu-institution"><i class="bi bi-geo-alt"></i> {{ $edu['institution'] }}</p>
                     <p class="edu-period"><i class="bi bi-calendar3"></i> {{ $edu['period'] }}</p>
@@ -462,9 +467,13 @@
         <div class="row g-4 justify-content-center">
             @foreach($data['certifications'] as $idx => $cert)
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="{{ $idx * 100 }}">
-                <div class="cert-card">
+                <div class="cert-card {{ $cert['upcoming'] ? 'cert-card--upcoming' : '' }}">
                     <div class="cert-icon"><i class="bi bi-{{ $cert['icon'] }}"></i></div>
-                    <div class="cert-verified"><i class="bi bi-patch-check-fill"></i></div>
+                    @if($cert['upcoming'])
+                        <div class="cert-upcoming-badge"><i class="bi bi-hourglass-split"></i> In arrivo</div>
+                    @else
+                        <div class="cert-verified"><i class="bi bi-patch-check-fill"></i></div>
+                    @endif
                     <h5 class="cert-name">{{ $cert['name'] }}</h5>
                     <p class="cert-issuer">{{ $cert['issuer'] }}</p>
                 </div>

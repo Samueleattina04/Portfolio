@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             'Full-Stack Web Developer',
             'Sviluppo Siti Web & Gestionali',
             'Consulenza Informatica',
-            'Cybersecurity Enthusiast',
         ];
         let tIdx = 0, cIdx = 0, deleting = false;
         function typeLoop() {

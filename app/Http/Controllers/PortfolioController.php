@@ -52,10 +52,10 @@ class PortfolioController extends Controller
                     'color' => 'accent2',
                 ],
                 [
-                    'icon'  => 'shield-lock-fill',
-                    'title' => 'Cybersecurity',
-                    'desc'  => 'Analisi delle vulnerabilità, hardening dei sistemi, endpoint security e monitoraggio della sicurezza IT aziendale.',
-                    'tags'  => ['Firewall', 'Endpoint Security', 'Audit', 'Backup'],
+                    'icon'  => 'graph-up-arrow',
+                    'title' => 'Formazione & Crescita',
+                    'desc'  => 'Mi sto preparando per le certificazioni Cisco CCNA e CompTIA Security+. A settembre inizierò la laurea in Informatica con magistrale in Sicurezza Informatica.',
+                    'tags'  => ['CCNA', 'CompTIA Security+', 'Laurea Informatica'],
                     'color' => 'purple',
                 ],
             ],
@@ -107,24 +107,35 @@ class PortfolioController extends Controller
 
             'education' => [
                 [
+                    'title'       => 'Laurea in Informatica + Magistrale in Sicurezza Informatica',
+                    'institution' => 'Università (in partenza)',
+                    'period'      => 'Settembre 2025 – In corso',
+                    'description' => 'A settembre inizio il percorso universitario in Informatica, con obiettivo magistrale in Sicurezza Informatica.',
+                    'upcoming'    => true,
+                ],
+                [
                     'title'       => 'Full-Stack Web Developer con Specializzazione in Cybersecurity',
                     'institution' => 'Aulab',
                     'period'      => 'Novembre 2024 – Giugno 2025',
                     'description' => 'Corso intensivo di sviluppo web full-stack con focus su sicurezza informatica. HTML, CSS, JavaScript, PHP, Laravel, Bootstrap.',
+                    'upcoming'    => false,
                 ],
                 [
                     'title'       => 'Diploma di Liceo delle Scienze Umane – Opzione Economico-Sociale',
                     'institution' => 'Liceo Ginnasio Statale "G. Verga", Adrano',
                     'period'      => 'Settembre 2017 – Luglio 2022',
                     'description' => 'Votazione: 76/100',
+                    'upcoming'    => false,
                 ],
             ],
 
             'certifications' => [
-                ['name' => 'Introduction to Cybersecurity', 'issuer' => 'Cisco', 'icon' => 'shield-lock'],
-                ['name' => 'Networking Basics',              'issuer' => 'Cisco', 'icon' => 'diagram-3'],
-                ['name' => 'Introduction to IoT',            'issuer' => 'Cisco', 'icon' => 'cpu'],
-                ['name' => 'Fondamenti di Cybersecurity',    'issuer' => 'LinkedIn Learning', 'icon' => 'lock'],
+                ['name' => 'Introduction to Cybersecurity', 'issuer' => 'Cisco',             'icon' => 'shield-lock', 'upcoming' => false],
+                ['name' => 'Networking Basics',              'issuer' => 'Cisco',             'icon' => 'diagram-3',  'upcoming' => false],
+                ['name' => 'Introduction to IoT',            'issuer' => 'Cisco',             'icon' => 'cpu',        'upcoming' => false],
+                ['name' => 'Fondamenti di Cybersecurity',    'issuer' => 'LinkedIn Learning', 'icon' => 'lock',       'upcoming' => false],
+                ['name' => 'Cisco CCNA',                     'issuer' => 'Cisco',             'icon' => 'router',     'upcoming' => true],
+                ['name' => 'CompTIA Security+',              'issuer' => 'CompTIA',           'icon' => 'shield-half', 'upcoming' => true],
             ],
 
             'languages' => [
