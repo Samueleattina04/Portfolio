@@ -16,7 +16,7 @@ class PortfolioController extends Controller
             'location' => 'Adrano, Catania, Italia',
             'email' => 'samueleattina04@gmail.com',
             'phone' => '+39 340 489 2432',
-            'linkedin' => 'https://www.linkedin.com/in/samuele-attina',
+            'linkedin' => 'https://www.linkedin.com/in/samuele-attin%C3%A0-194770263',
 
             'about' => 'Professionista IT con esperienza in IT Service Management, Incident Management e Governance dei Servizi IT. Attualmente in formazione come Full-Stack Web Developer con specializzazione in Cybersecurity. Appassionato di tecnologia, sistemi informatici e sicurezza digitale, con un approccio analitico ai problemi e una forte propensione all\'apprendimento continuo.',
 
