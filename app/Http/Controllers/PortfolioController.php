@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class PortfolioController extends Controller
@@ -164,11 +166,24 @@ class PortfolioController extends Controller
             ], 422);
         }
 
-        \Log::info('Portfolio contact form', $request->only(['name', 'email', 'subject', 'message']));
+        try {
+            Mail::to('samueleattina04@gmail.com')->send(new ContactMail(
+                senderName:  $request->input('name'),
+                senderEmail: $request->input('email'),
+                subject:     $request->input('subject'),
+                body:        $request->input('message'),
+            ));
+        } catch (\Exception $e) {
+            \Log::error('Contact mail failed: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'errors'  => ['email' => ['Errore nell\'invio. Riprova o contattami su WhatsApp.']],
+            ], 500);
+        }
 
         return response()->json([
             'success' => true,
-            'message' => 'Messaggio ricevuto! Ti contatterò al più presto.',
+            'message' => 'Messaggio inviato! Ti risponderò al più presto.',
         ]);
     }
 }
