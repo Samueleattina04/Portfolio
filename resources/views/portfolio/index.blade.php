@@ -149,20 +149,7 @@
                 <li class="nav-item"><a class="nav-link" href="#certifications">Certificazioni</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contatti</a></li>
             </ul>
-            <div class="navbar-contacts">
-                <a href="mailto:{{ $data['email'] }}" class="nav-contact-link" title="Email">
-                    <i class="bi bi-envelope-fill"></i>
-                </a>
-                <a href="{{ $data['linkedin'] }}" target="_blank" rel="noopener" class="nav-contact-link" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-                <a href="tel:{{ $data['phone'] }}" class="nav-contact-link" title="Telefono">
-                    <i class="bi bi-telephone-fill"></i>
-                </a>
-                <a href="https://wa.me/{{ $data['whatsapp'] }}" target="_blank" rel="noopener" class="nav-contact-link nav-contact-link--wa" title="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
-                </a>
-            </div>
+
         </div>
     </div>
 </nav>
