@@ -149,6 +149,20 @@
                 <li class="nav-item"><a class="nav-link" href="#certifications">Certificazioni</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contatti</a></li>
             </ul>
+            <div class="navbar-contacts">
+                <a href="mailto:{{ $data['email'] }}" class="nav-contact-link" title="Email">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+                <a href="{{ $data['linkedin'] }}" target="_blank" rel="noopener" class="nav-contact-link" title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="tel:{{ $data['phone'] }}" class="nav-contact-link" title="Telefono">
+                    <i class="bi bi-telephone-fill"></i>
+                </a>
+                <a href="https://wa.me/{{ $data['whatsapp'] }}" target="_blank" rel="noopener" class="nav-contact-link nav-contact-link--wa" title="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -187,27 +201,8 @@
                         <span>I miei servizi</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
-                    <a href="https://wa.me/{{ $data['whatsapp'] }}?text=Ciao%20Samuele!%20Ti%20contatto%20dal%20tuo%20portfolio."
-                       target="_blank" rel="noopener" class="btn btn-whatsapp-hero">
-                        <i class="bi bi-whatsapp"></i>
-                        <span>WhatsApp</span>
-                    </a>
                     <a href="#contact" class="btn btn-outline-custom">
                         <span>Contattami</span>
-                    </a>
-                </div>
-                <div class="hero-socials" data-aos="fade-up" data-aos-delay="500">
-                    <a href="mailto:{{ $data['email'] }}" class="social-link" title="Email">
-                        <i class="bi bi-envelope-fill"></i>
-                    </a>
-                    <a href="{{ $data['linkedin'] }}" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a href="tel:{{ $data['phone'] }}" class="social-link" title="Telefono">
-                        <i class="bi bi-telephone-fill"></i>
-                    </a>
-                    <a href="https://wa.me/{{ $data['whatsapp'] }}" target="_blank" rel="noopener" class="social-link" title="WhatsApp">
-                        <i class="bi bi-whatsapp"></i>
                     </a>
                 </div>
             </div>

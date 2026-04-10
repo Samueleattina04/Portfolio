@@ -161,6 +161,52 @@ body:has(button:hover) .cursor-outline {
 .nav-link:hover::after,
 .nav-link.active::after { width: 70%; left: 15%; }
 
+/* navbar contact icons */
+.navbar-contacts {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border);
+}
+.nav-contact-link {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition);
+    background: transparent;
+}
+.nav-contact-link:hover {
+    background: rgba(0,212,255,.1);
+    color: var(--primary);
+}
+.nav-contact-link--wa:hover {
+    background: rgba(37,211,102,.12);
+    color: #25d366;
+}
+@media (max-width: 991.98px) {
+    .navbar-contacts {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: .75rem;
+        margin-top: .75rem;
+        justify-content: center;
+        gap: .5rem;
+    }
+    .nav-contact-link {
+        width: 42px; height: 42px;
+        font-size: 1.1rem;
+        background: rgba(255,255,255,.04);
+        border: 1px solid var(--border);
+    }
+}
+
 /* hamburger */
 .navbar-toggler { border: none; background: none; cursor: pointer; }
 .navbar-toggler-icon-custom { display: flex; flex-direction: column; gap: 5px; }
